@@ -19,6 +19,7 @@ public class deepPanPosition : MonoBehaviour
 
     public void MoveGameObject()
     {
+        gameObjectToMove.SetActive(true);
 
         int rInt = Random.Range(0, 4);
         if (rInt == 0)

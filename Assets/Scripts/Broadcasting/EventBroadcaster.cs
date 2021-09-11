@@ -142,6 +142,7 @@ public class EventBroadcaster {
 		if(this.eventObservers.ContainsKey(notificationName)) {
 			ObserverList eventObserver = this.eventObservers[notificationName];
 			eventObserver.NotifyObservers(parameters);
+			Debug.Log($"EVENT POSTED: {notificationName}");
 		}
 
 	}

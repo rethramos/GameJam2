@@ -11,6 +11,7 @@ public class EventNames {
 	public class ChecklistEvents
     {
 		public const string ON_CHECKLIST_ADD = "ON_CHECKLIST_ADD";
+		public const string ON_ITEM_FOUND = "ON_ITEM_FOUND";
     }
 }
 

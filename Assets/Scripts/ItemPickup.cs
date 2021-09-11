@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask layerMask;
     private MissingItem itemBeingPickedUp;
@@ -17,6 +18,13 @@ public class ItemPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (itemBeingPickedUp != null && Input.GetMouseButtonDown(0))
+        {
+            Checklist.MarkAsFound(itemBeingPickedUp);
+            Parameters p = new Parameters();
+            p.PutExtra(FOUND_ITEM_KEY, itemBeingPickedUp.ItemName);
+            EventBroadcaster.Instance.PostEvent(EventNames.ChecklistEvents.ON_ITEM_FOUND, p);
+        }
     }
 
     private void FixedUpdate()
@@ -49,4 +57,6 @@ public class ItemPickup : MonoBehaviour
 
         Debug.Log($"PICKED UP ITEM: {itemBeingPickedUp}");
     }
+
+    public static string FOUND_ITEM_KEY { get => "FOUND_ITEM"; }
 }

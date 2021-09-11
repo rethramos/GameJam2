@@ -12,10 +12,10 @@ public static class Checklist
         PrintItems();
     }
 
-    //public static void MarkAsFound(MissingItem item)
-    //{
-    //    itemsToFind.Find(el => el.ItemName == item.ItemName).IsFound = true;
-    //}
+    public static void MarkAsFound(MissingItem item)
+    {
+        itemsToFind.Find(el => el.ItemName == item.ItemName).IsFound = true;
+    }
 
     public static List<MissingItem> GetAllItems()
     {

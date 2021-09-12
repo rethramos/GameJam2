@@ -9,17 +9,29 @@ public static class Checklist
     public static void AddToChecklist(MissingItem item)
     {
         itemsToFind.Add(item);
-        //MissingItem missingItem = item.GetComponent<MissingItem>();
-        Debug.Log($"Added {item.ItemName}. items: {itemsToFind}");
+        PrintItems();
     }
 
-    //public static void MarkAsFound(MissingItem item)
-    //{
-    //    itemsToFind.Find(el => el.ItemName == item.ItemName).IsFound = true;
-    //}
+    public static void MarkAsFound(MissingItem item)
+    {
+        itemsToFind.Find(el => el.ItemName == item.ItemName).IsFound = true;
+    }
 
     public static List<MissingItem> GetAllItems()
     {
         return itemsToFind;
     }
+
+    private static void PrintItems()
+    {
+        List<string> itemNames = new List<string>();
+        
+        foreach (MissingItem item in itemsToFind)
+        {
+            itemNames.Add(item.ItemName);
+        }
+
+        Debug.Log("ITEMS:" + string.Join(",",itemNames));
+    }
+
 }

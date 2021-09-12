@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 75050965}
   - component: {fileID: 75050964}
   - component: {fileID: 75050963}
+  - component: {fileID: 75050966}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -204,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 75050964}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 75050966}
+        m_TargetAssemblyTypeName: startScript, Assembly-CSharp
+        m_MethodName: Storyline2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &75050964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +256,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75050961}
   m_CullTransparentMesh: 1
+--- !u!114 &75050966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75050961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78570aaa48c27849bf94386909384d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &112032456
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,16 +634,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629667535}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
+  m_LocalRotation: {x: -0, y: -0.000000014901159, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.25208, y: 1.18802, z: 1.2506}
   m_Children: []
   m_Father: {fileID: 1196783272}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 303.25, y: 143.75}
+  m_AnchoredPosition: {x: -72.5, y: 157}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &629667537
@@ -654,7 +679,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "Look for the following items that are essential for food \npreparation
+    before the sun sets down. A checklist will be \ngiven as a guide in finding the
+    said items which can be \ntoggled by pressing \u2018C\u2019\n\nGood luck and
+    hurry!"
 --- !u!222 &629667538
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -734,16 +734,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498886394}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
+  m_LocalRotation: {x: -0, y: -0.000000029802319, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2520849, y: 1.18802, z: 1.2506}
   m_Children: []
   m_Father: {fileID: 859302847}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 112}
+  m_AnchoredPosition: {x: -76, y: 141}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498886396
@@ -779,7 +779,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "Your kids will arrive from school in a couple of minutes, \nyou have to
+    prepare for dinner, but there\u2019s a huge problem. \nThe house is a mess and
+    various kitchen items needed for \nfood preparation are scattered in different
+    locations\ninside the house."
 --- !u!222 &1498886397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -800,6 +803,7 @@ GameObject:
   - component: {fileID: 1588804832}
   - component: {fileID: 1588804831}
   - component: {fileID: 1588804830}
+  - component: {fileID: 1588804833}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -869,7 +873,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588804831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588804833}
+        m_TargetAssemblyTypeName: startScript, Assembly-CSharp
+        m_MethodName: Storyline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1588804831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,3 +924,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588804828}
   m_CullTransparentMesh: 1
+--- !u!114 &1588804833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588804828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78570aaa48c27849bf94386909384d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

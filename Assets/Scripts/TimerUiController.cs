@@ -7,7 +7,7 @@ public class TimerUiController : MonoBehaviour
 {
     private Slider slider;
     private Animator animator;
-    private float durationSeconds = 10f;
+    private float durationSeconds = 180f;
     private float timeElapsed = 0f;
     private bool animationTriggered = false;
     private bool eventPosted = false;

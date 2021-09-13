@@ -28,36 +28,33 @@ public class ItemFoundUiController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //canvas.gameObject.SetActive(false);
         dialogObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnItemFound(Parameters p)
     {
         string itemName = p.GetStringExtra(ItemPickup.FOUND_ITEM_KEY, "");
         string text = $"{itemName} found!";
-        //notificationDuration = 5f;
         StartCoroutine(DisplayNotification(text));
     }
 
     private IEnumerator DisplayNotification(string message)
     {
         GameObject d = GameObject.Instantiate(dialogObject, dialogsContainer.transform);
-        //dialogObjects.Add(d);
         d.GetComponentInChildren<TextMeshProUGUI>().text = message;
         d.SetActive(true);
 
-        //textTemplate.text = message;
-        //canvas.gameObject.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        //dialogObjects.Remove(d);
+        yield return new WaitForSeconds(3f);
+        d.GetComponent<Animator>().SetTrigger("DialogFade");
+        yield return new WaitForSeconds(2f);
+
         GameObject.Destroy(d);
-        //canvas.gameObject.SetActive(false);
     }
+
 }

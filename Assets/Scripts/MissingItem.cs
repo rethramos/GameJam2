@@ -19,7 +19,7 @@ public class MissingItem : MonoBehaviour
         p.PutExtra(ITEM_KEY, itemName);
         EventBroadcaster.Instance.PostEvent(EventNames.ChecklistEvents.ON_CHECKLIST_ADD, p);
 
-        var outline = gameObject.AddComponent<Outline>();
+        Outline outline = gameObject.AddComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineVisible;
         Color32 color32 = new Color32(192, 50, 50, 255);
         outline.OutlineColor = color32;

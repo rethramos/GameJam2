@@ -13,6 +13,11 @@ public class EventNames {
 		public const string ON_CHECKLIST_ADD = "ON_CHECKLIST_ADD";
 		public const string ON_ITEM_FOUND = "ON_ITEM_FOUND";
     }
+
+	public class TimerEvents
+    {
+		public const string ON_TIMES_UP = "ON_TIMES_UP";
+    }
 }
 
 

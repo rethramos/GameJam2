@@ -5,6 +5,7 @@ using UnityEngine;
 public static class Checklist
 {
     private static List<MissingItem> itemsToFind = new List<MissingItem>();
+    private static int nFound = 0;
 
     public static void AddToChecklist(MissingItem item)
     {
@@ -15,6 +16,7 @@ public static class Checklist
     public static void MarkAsFound(MissingItem item)
     {
         itemsToFind.Find(el => el.ItemName == item.ItemName).IsFound = true;
+        nFound++;
     }
 
     public static List<MissingItem> GetAllItems()
@@ -32,6 +34,11 @@ public static class Checklist
         }
 
         Debug.Log("ITEMS:" + string.Join(",",itemNames));
+    }
+
+    public static bool AllFound()
+    {
+        return nFound == itemsToFind.Count;
     }
 
 }

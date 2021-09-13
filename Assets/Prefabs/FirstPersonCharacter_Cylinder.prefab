@@ -170,7 +170,7 @@ MonoBehaviour:
   groundDistance: 0.2
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   jumpHeight: 3
 --- !u!1 &6753911759725417995
 GameObject:

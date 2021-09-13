@@ -29,7 +29,8 @@ public class ItemPickup : MonoBehaviour
 
     private void FixedUpdate()
     {
-        SelectItem();   
+        SelectItem();
+        Debug.Log($"ITEM BEING PICKED UP: {itemBeingPickedUp}");
     }
 
     private void SelectItem()

@@ -5,23 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class startScript : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Play()
     {
         SceneManager.LoadScene("Storyline");
     }
-    
+
     public void Storyline()
     {
         SceneManager.LoadScene("Storyline2");

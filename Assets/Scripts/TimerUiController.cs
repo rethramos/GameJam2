@@ -23,29 +23,33 @@ public class TimerUiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (timeElapsed < durationSeconds)
+        if (!eventPosted)
         {
-            timeElapsed += Time.deltaTime;
-            slider.value = (timeElapsed / durationSeconds);
-            Debug.Log(timeElapsed);
 
-            // add "shaking" animation to timer when there's only 30% of the duration left
-            if (!animationTriggered && timeElapsed >= 0.6 * durationSeconds)
+            if (timeElapsed < durationSeconds)
             {
-                animator.SetTrigger("AlmostTime");
-                animationTriggered = true;
+                timeElapsed += Time.deltaTime;
+                slider.value = (timeElapsed / durationSeconds);
+                Debug.Log(timeElapsed);
+
+                // add "shaking" animation to timer when there's only 30% of the duration left
+                if (!animationTriggered && timeElapsed >= 0.6 * durationSeconds)
+                {
+                    animator.SetTrigger("AlmostTime");
+                    animationTriggered = true;
+                }
             }
-        }
-        else
-        {
-            if (!eventPosted)
+            else
             {
-                // TODO: post game lose event
-                Parameters p = new Parameters();
-                p.PutExtra("GAME_OVER_KEY", 0);
-                EventBroadcaster.Instance.PostEvent(EventNames.TimerEvents.ON_GAME_OVER, p);
-                Debug.Log("TIME'S UP");
+                if (!eventPosted)
+                {
+                    // post game lose event
+                    Parameters p = new Parameters();
+                    p.PutExtra("GAME_OVER_KEY", 0);
+                    EventBroadcaster.Instance.PostEvent(EventNames.TimerEvents.ON_GAME_OVER, p);
+                    Debug.Log("TIME'S UP");
+                    eventPosted = true;
+                }
             }
         }
 

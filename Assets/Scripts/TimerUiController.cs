@@ -10,7 +10,20 @@ public class TimerUiController : MonoBehaviour
     private float durationSeconds = 180f;
     private float timeElapsed = 0f;
     private bool animationTriggered = false;
-    private bool eventPosted = false;
+    private bool isGameOver = false;
+
+    // Awake is called when the script instance is being loaded
+    private void Awake()
+    {
+        EventBroadcaster.Instance.AddObserver(EventNames.TimerEvents.ON_GAME_OVER, OnGameOver);
+    }
+
+    // This function is called when the MonoBehaviour will be destroyed
+    private void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveActionAtObserver(EventNames.TimerEvents.ON_GAME_OVER, OnGameOver);
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +36,7 @@ public class TimerUiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!eventPosted)
+        if (!isGameOver)
         {
 
             if (timeElapsed < durationSeconds)
@@ -41,20 +54,25 @@ public class TimerUiController : MonoBehaviour
             }
             else
             {
-                if (!eventPosted)
+                if (!isGameOver)
                 {
                     // post game lose event
                     Parameters p = new Parameters();
                     p.PutExtra("GAME_OVER_KEY", 0);
                     EventBroadcaster.Instance.PostEvent(EventNames.TimerEvents.ON_GAME_OVER, p);
                     Debug.Log("TIME'S UP");
-                    eventPosted = true;
+                    isGameOver = true;
                 }
             }
         }
 
 
 
+    }
+
+    private void OnGameOver(Parameters p)
+    {
+        isGameOver = true;
     }
 
 }

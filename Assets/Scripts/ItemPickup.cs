@@ -24,6 +24,13 @@ public class ItemPickup : MonoBehaviour
             Parameters p = new Parameters();
             p.PutExtra(FOUND_ITEM_KEY, itemBeingPickedUp.ItemName);
             EventBroadcaster.Instance.PostEvent(EventNames.ChecklistEvents.ON_ITEM_FOUND, p);
+
+            if (Checklist.AllFound())
+            {
+                Parameters p2 = new Parameters();
+                p2.PutExtra("GAME_OVER_KEY", 1);
+                EventBroadcaster.Instance.PostEvent(EventNames.TimerEvents.ON_GAME_OVER, p2);
+            }
         }
     }
 

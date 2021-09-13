@@ -42,10 +42,15 @@ public class TimerUiController : MonoBehaviour
             if (!eventPosted)
             {
                 // TODO: post game lose event
-                EventBroadcaster.Instance.PostEvent(EventNames.TimerEvents.ON_TIMES_UP);
+                Parameters p = new Parameters();
+                p.PutExtra("GAME_OVER_KEY", 0);
+                EventBroadcaster.Instance.PostEvent(EventNames.TimerEvents.ON_GAME_OVER, p);
                 Debug.Log("TIME'S UP");
             }
         }
 
+
+
     }
+
 }

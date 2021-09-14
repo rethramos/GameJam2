@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class startScript : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Slider slider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +36,24 @@ public class startScript : MonoBehaviour
     }
     public void Storyline3()
     {
-        SceneManager.LoadScene("WhiteRoom");
+        //SceneManager.LoadScene("WhiteRoom");
+        StartCoroutine(LoadAsynchronously());
     }
     public void Exit()
     {
         Application.Quit();
+    }
+
+    private IEnumerator LoadAsynchronously()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync("WhiteRoom");
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            yield return null;
+        }
     }
 }

@@ -45,7 +45,7 @@ public class TimerUiController : MonoBehaviour
                 slider.value = (timeElapsed / durationSeconds);
                 Debug.Log(timeElapsed);
 
-                // add "shaking" animation to timer when there's only 30% of the duration left
+                // add "shaking" animation to timer when there's only 40% of the duration left
                 if (!animationTriggered && timeElapsed >= 0.6 * durationSeconds)
                 {
                     animator.SetTrigger("AlmostTime");
